@@ -8,7 +8,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em;
+    padding: .5em;
     flex-wrap: wrap;
     margin: 0;
 }
@@ -31,6 +31,7 @@ a {
     text-decoration: none;
     color: gold;
     font-size: 1.5rem;
+    border-radius: 12px;
 }
 
 header {
@@ -68,6 +69,7 @@ h2 {
 
 .one {
     width: 50%;
+    padding: 1em;
 }
 
 
@@ -138,13 +140,12 @@ span {
     align-items: center;
 }
 
-.section4 h2 {
-}
 
 input {
     margin: 1em;
     padding: 1em 2em;
     border: none;
+    border-radius: 12px;
 }
 
 .sub-container a {
@@ -156,7 +157,7 @@ input {
 }
 
 footer {
-    padding: 3em 0;
+    padding: .1em 0;
     background-color: rgb(185, 185, 71);
 }
 
@@ -164,6 +165,7 @@ footer p {
     text-align: center;
     color: white;
 }
+
 
 
 
@@ -180,6 +182,10 @@ footer p {
         transform: rotate(0deg);
         margin-top: 15em;
         width: 50%;
+    }
+
+    .img {
+        padding: 1em;
     }
     .info p {
         font-size: 1rem;
@@ -223,4 +229,5 @@ footer p {
         width: 100%;
         text-align: center;
     }
+
 }
