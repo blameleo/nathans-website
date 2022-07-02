@@ -1,38 +1,118 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: 'League Gothic', sans-serif;
 }
 
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: .5em;
-    flex-wrap: wrap;
-    margin: 0;
+html {
+    scroll-behavior: smooth;
 }
 
-.list-items {
-    display: flex;
+h1 {
+    margin: 0;
 }
+button {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    cursor: pointer;
+    position: absolute;
+    right: 1em;
+    color: black;
+}
+
+i {
+    transition: transform 250ms ease-in-out;
+    color: white;
+}
+
+.nav-container {
+    position: fixed;
+    color: white;
+    background-color: darkslategrey;
+    top: 0;
+    right: 0;
+    left: 0 ;
+    bottom: 0;
+    z-index: 100;
+    transform: translateX(100%);
+    transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
+}
+
+.nav-open .nav-container {
+    transform: translateX(0);
+}
+
+.nav-open button {
+    position: fixed;
+}
+
+.nav-open i {
+    transform: rotate(.75turn);
+}
+
+.nav-open i::before {
+    transform: rotate(90deg) ;
+}
+
+.nav-open i::after {
+    opacity: 0;
+}
+
+
+
+.navlist {
+    list-style: none;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.list-item {
+    color: white;
+}
+
+.list-item:hover {
+    color: aqua;
+}
+
+.list-item a{
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+
+
 h1 {
     font-size: 2rem;
     margin: 0;
     color: white;
 }
 
-li {
-    list-style: none;
-    margin-left: 5em;
-}
 
-a {
-    text-decoration: none;
-    color: gold;
-    font-size: 1.5rem;
-    border-radius: 12px;
-}
+
+
 
 header {
     background-color: rgb(45, 179, 166);
@@ -40,21 +120,18 @@ header {
 
 h2 {
     margin: 0;
-    font-size: 6rem;
+    font-size: 4rem;
     color: white;
     text-align: center;
 }
 
-.hamburger {
-    display: none;
-}
 
 .section1 {
     background-color: rgb(45, 179, 166);  
     height: 60vh;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .socials {
@@ -62,20 +139,28 @@ h2 {
 }
 
 .two {
-    margin-top: 20em;
-    transform: rotate(80deg);
-    width: 40%;
+    width: 50%;
+}
+
+.two img {
+    display: block;
+    width: 340px;
+    margin: 0 auto;
+}
+.one h2 {
+    font-size: 7rem;
 }
 
 .one {
-    width: 50%;
+
+    width: 60%;
     padding: 1em;
 }
 
 
 .section2 {
     background-image:     linear-gradient(90deg, rgba(2,0,36,0.52) 0%, rgba(121,9,69,0.7) 35%, rgba(0,212,255,1) 100%)
-    ,url(section2.jpg);
+    ,url(nathan3.jpeg);
     height: 60vh;
     background-size: cover;
     background-repeat: no-repeat;
@@ -99,20 +184,26 @@ h2 {
 .section3 {
     height: 60vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     background-color: deeppink;
     align-items: center;
+    width: 100%;
 }
 
+.img {
+    width: 40%;
 
+}
 
 .img img {
-    width: 100%;
+    width: 60%;
+    box-shadow: 0 2px 5px 2px #282a2d;
+    margin-left: 5em;
 }
 
 .info {
     padding: 2em;
-    width: 95%;
+    width: 50%;
     color: white;
 }
 
@@ -136,8 +227,18 @@ span {
 
 .sub-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: white;
+}
+
+textarea {
+    margin-bottom: 2em;
+    border-radius: 12px;
+    border: none;
+    margin-left: 1em;
+    width: 260px;
 }
 
 
@@ -153,15 +254,13 @@ input {
     color: rgb(167, 89, 102);
     padding: .3em 2em;
     text-align: center;
-
+    text-decoration: none;
+    
 }
 
 footer {
     padding: .1em 0;
     background-color: rgb(185, 185, 71);
-}
-
-footer p {
     text-align: center;
     color: white;
 }
@@ -169,7 +268,9 @@ footer p {
 
 
 
-@media (max-width: 600px) {
+
+
+@media (max-width: 800px) {
 
 
     svg {
@@ -177,23 +278,37 @@ footer p {
         height: 32px;
     }
 
-    .two {
-        margin-bottom: 15em;
-        transform: rotate(0deg);
-        margin-top: 15em;
-        width: 50%;
-    }
-
-    .img {
-        padding: 1em;
-    }
-    .info p {
-        font-size: 1rem;
-    }
-
-    .two img{
+    .section1 {
         width: 100%;
+        justify-content: space-around;
+        padding-bottom: 0;
+
     }
+
+    .one h2 {
+        font-size: 5rem;
+    }
+
+    .one {
+        width: 40%;    
+    }
+
+ .two {
+    width: 60%;
+ }
+
+ .two img {
+    width: 240px;
+    margin-right: 1em;
+    position: relative;
+    right: 1em;
+ }
+
+ .section3 {
+    width: 100%;
+    justify-content: space-around;
+ }
+
 
     .section4 h2 {
         font-size: 3rem;
@@ -203,31 +318,34 @@ footer p {
         flex-direction: column;
     }
 
-    .list-items {
-        display: none;
+ 
+    .img img {
+        width: 170px;
+        margin-left: .7em;
     }
 
-    .list-items li {
-        margin-left: 0;
+    .info {
+        padding: 3em;
+        width: 100%;
+    }
+  
+    .info p {
+        font-size: .9rem;
+        width: 100%;
     }
 
-    .hamburger {
-        display: block;
-        background: transparent;
-        border: none;
-        font-size: 2rem;
-        cursor: pointer ;
-        color: white;
-    }
 
     .three {
         margin-top: 1em;
     }
 
-    .show {
-        display: block;
-        width: 100%;
-        text-align: center;
-    }
+ textarea {
+    margin-bottom: 1em;
+    font-family: 'League Gothic', sans-serif;
+    border-radius: 12px;
+    font-weight: 100;
+    border: none;
+ }
 
 }
+
