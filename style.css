@@ -307,10 +307,10 @@ footer {
  }
 
  .two img {
-    width: 240px;
-    margin-right: 1em;
+    width: 220px;
+    margin-right: em;
     position: relative;
-    right: 1em;
+    right: 0em;
  }
 
  .section3 {
